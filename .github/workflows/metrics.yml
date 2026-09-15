@@ -30,8 +30,6 @@ jobs:
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Budapest
           config_padding: 16
-          repositories: 1000
-          repositories_batch: 10
           # Habits disabled: upstream crashes on missing PushEvent commit arrays.
           plugins_errors_fatal: yes
           plugin_lines: yes
