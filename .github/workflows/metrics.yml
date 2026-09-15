@@ -17,6 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Verify repository query
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          node --input-type=module <<'JS'
+          const response = await fetch("https://api.github.com/graphql", {method:"POST",headers:{Authorization:`Bearer ${process.env.METRICS_TOKEN}`,"Content-Type":"application/json"},body:JSON.stringify({query:"query BaseRepositories {\n  user(login: \"dskvr\") {\n    repositories( first: 100 , isFork: false , ownerAffiliations: [OWNER, ORGANIZATION_MEMBER], affiliations: [OWNER, ORGANIZATION_MEMBER] , orderBy: {field: UPDATED_AT, direction: DESC}) {\n      edges {\n        cursor\n      }\n      nodes {\n        updatedAt\n        name\n        owner {\n          login\n        }\n        isFork\n        forkCount\n        watchers {\n          totalCount\n        }\n        stargazers {\n          totalCount\n        }\n        releases {\n          totalCount\n        }\n        deployments {\n          totalCount\n        }\n        environments {\n          totalCount\n        }\n        languages(first: 8) {\n          edges {\n            size\n            node {\n              color\n              name\n            }\n          }\n        }\n        licenseInfo {\n          name\n          spdxId\n        }\n        issues_open: issues(states: OPEN) {\n          totalCount\n        }\n        issues_closed: issues(states: CLOSED) {\n          totalCount\n        }\n        pr_open: pullRequests(states: OPEN) {\n          totalCount\n        }\n        pr_closed: pullRequests(states: CLOSED) {\n          totalCount\n        }\n        pr_merged: pullRequests(states: MERGED) {\n          totalCount\n        }\n      }\n    }\n  }\n}"})});
+          const result = await response.json();
+          console.log(JSON.stringify({status:response.status,scopes:response.headers.get("x-oauth-scopes"),errors:result.errors,nodeCount:result.data?.user?.repositories?.nodes?.length}));
+          if(result.errors?.length) process.exit(1);
+          JS
       - name: Generate profile metrics
         uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # latest
         with:
