@@ -1,49 +1,44 @@
 name: Profile metrics
-
 on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
-
 permissions:
   contents: write
-
 concurrency:
   group: profile-metrics
   cancel-in-progress: false
-
 jobs:
   metrics:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Verify repository query
+      - uses: actions/checkout@v4
+      - name: Generate combined dskvr and sandwichfarm activity
         env:
           METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: node .github/scripts/generate-combined-metrics.mjs > combined-metrics.svg
+      - name: Commit combined activity
         run: |
-          node --input-type=module <<'JS'
-          const response = await fetch("https://api.github.com/graphql", {method:"POST",headers:{Authorization:`Bearer ${process.env.METRICS_TOKEN}`,"Content-Type":"application/json","User-Agent":"dskvr-profile-metrics"},body:JSON.stringify({query:"query BaseRepositories {\n  user(login: \"dskvr\") {\n    repositories( first: 100 , isFork: false , ownerAffiliations: [OWNER, ORGANIZATION_MEMBER], affiliations: [OWNER, ORGANIZATION_MEMBER] , orderBy: {field: UPDATED_AT, direction: DESC}) {\n      edges {\n        cursor\n      }\n      nodes {\n        updatedAt\n        name\n        owner {\n          login\n        }\n        isFork\n        forkCount\n        watchers {\n          totalCount\n        }\n        stargazers {\n          totalCount\n        }\n        releases {\n          totalCount\n        }\n        deployments {\n          totalCount\n        }\n        environments {\n          totalCount\n        }\n        languages(first: 8) {\n          edges {\n            size\n            node {\n              color\n              name\n            }\n          }\n        }\n        licenseInfo {\n          name\n          spdxId\n        }\n        issues_open: issues(states: OPEN) {\n          totalCount\n        }\n        issues_closed: issues(states: CLOSED) {\n          totalCount\n        }\n        pr_open: pullRequests(states: OPEN) {\n          totalCount\n        }\n        pr_closed: pullRequests(states: CLOSED) {\n          totalCount\n        }\n        pr_merged: pullRequests(states: MERGED) {\n          totalCount\n        }\n      }\n    }\n  }\n}"})});
-          const body = await response.text();
-          let result; try { result = JSON.parse(body); } catch { console.log(JSON.stringify({status:response.status,body:body.slice(0,1000)})); process.exit(1); }
-          console.log(JSON.stringify({status:response.status,scopes:response.headers.get("x-oauth-scopes"),errors:result.errors,nodeCount:result.data?.user?.repositories?.nodes?.length}));
-          if(result.errors?.length) process.exit(1);
-          JS
-      - name: Generate profile metrics
-        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # latest
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add combined-metrics.svg
+          git diff --cached --quiet || git commit -m "Refresh combined public GitHub activity" -m "Tested: GitHub API data fetched for dskvr and sandwichfarm"
+          git push
+      - name: Generate personal Metrics image
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ github.token }}
           committer_branch: gh-pages
-          committer_message: "Keep profile statistics current"
+          committer_message: "Refresh personal GitHub metrics"
           user: dskvr
           filename: github-metrics.svg
           template: classic
           base: header, activity, community, repositories, metadata
           base_indepth: yes
-          repositories_affiliations: owner, organization_member
           config_timezone: Europe/Budapest
           config_padding: 16
-          # Habits disabled: upstream crashes on missing PushEvent commit arrays.
           plugins_errors_fatal: yes
           plugin_lines: yes
           plugin_lines_sections: base, repositories, history
