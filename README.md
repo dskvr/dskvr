@@ -15,4 +15,4 @@ Find me on [Nostr](https://njump.me/bread@sandwich.farm) => npub1uac67zc9er54ln0
 
 [![GitHub trophies](https://github-profile-trophy-orcin-eta.vercel.app/?username=dskvr)](https://github.com/ryo-ma/github-profile-trophy)
 
-[![GitHub metrics](https://metrics.lecoq.io/dskvr)](https://github.com/lowlighter/metrics)
+[![GitHub metrics](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/github-metrics.svg)](https://github.com/lowlighter/metrics)
