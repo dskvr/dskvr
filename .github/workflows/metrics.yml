@@ -19,7 +19,7 @@ jobs:
           METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: node .github/scripts/generate-combined-metrics.mjs > combined-metrics.svg
       - name: Generate modern trophy grid
-        uses: dskvr/github-profile-trophy@782a8ffca073f0fdf2c6b35340ab5fd3751038b2
+        uses: dskvr/github-profile-trophy@397e8e55dfa7f5811f531524ac61ebb343506291
         with:
           username: dskvr
           output_path: trophies.svg
