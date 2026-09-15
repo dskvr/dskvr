@@ -30,6 +30,8 @@ jobs:
           base: header, activity, community, repositories, metadata
           config_timezone: Europe/Budapest
           config_padding: 16
+          repositories_batch: 10
+          debug: yes
           plugins_errors_fatal: yes
           plugin_lines: yes
           plugin_lines_sections: base, repositories, history
