@@ -13,8 +13,10 @@ Find me on [Nostr](https://njump.me/bread@sandwich.farm) => npub1uac67zc9er54ln0
 
 ⚡️ Send Satoshis to my lightning wallet: [sandwich@minibits.cash](lightning://sandwich@minibits.cash)
 
-[![GitHub trophies](https://github-profile-trophy-orcin-eta.vercel.app/?username=dskvr)](https://github.com/ryo-ma/github-profile-trophy)
-
 [![Combined dskvr and sandwichfarm activity](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/combined-metrics.svg)](https://github.com/dskvr)
 
 [![GitHub metrics](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/github-metrics.svg)](https://github.com/lowlighter/metrics)
+
+## Achievement ledger
+
+<a href="https://github.com/dskvr/github-profile-trophy"><img src="https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/trophies.svg" alt="dskvr achievement ledger" width="720" /></a>
