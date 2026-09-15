@@ -1,38 +1,44 @@
 name: Profile metrics
-
 on:
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
-
 permissions:
   contents: write
-
 concurrency:
   group: profile-metrics
   cancel-in-progress: false
-
 jobs:
   metrics:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Generate profile metrics
-        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # latest
+      - uses: actions/checkout@v4
+      - name: Generate combined dskvr and sandwichfarm activity
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: node .github/scripts/generate-combined-metrics.mjs > combined-metrics.svg
+      - name: Commit combined activity
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add combined-metrics.svg
+          git diff --cached --quiet || git commit -m "Refresh combined public GitHub activity" -m "Tested: GitHub API data fetched for dskvr and sandwichfarm"
+          git push
+      - name: Generate personal Metrics image
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ github.token }}
           committer_branch: gh-pages
-          committer_message: "Keep profile statistics current"
+          committer_message: "Refresh personal GitHub metrics"
           user: dskvr
           filename: github-metrics.svg
           template: classic
           base: header, activity, community, repositories, metadata
           base_indepth: yes
-          repositories_affiliations: owner, organization_member
           config_timezone: Europe/Budapest
           config_padding: 16
-          # Habits disabled: upstream crashes on missing PushEvent commit arrays.
           plugins_errors_fatal: yes
           plugin_lines: yes
           plugin_lines_sections: base, repositories, history
