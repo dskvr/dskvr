@@ -34,7 +34,7 @@ jobs:
           git diff --cached --quiet || git commit -m "Refresh generated profile cards" -m "Tested: GitHub API data fetched for dskvr and selected organizations"
           git push
       - name: Generate aggregate Metrics image
-        uses: dskvr/metrics@678abfbd5fb582f062b5c6d3ebb4d95acafeed33
+        uses: dskvr/metrics@424bb4091bda111c9f406f298508ae179537de31
         with:
           use_prebuilt_image: no
           token: ${{ secrets.METRICS_TOKEN }}
