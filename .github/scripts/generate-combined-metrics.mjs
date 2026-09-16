@@ -67,13 +67,23 @@ const stamp = new Date().toISOString().replace("T", " ").replace(/\.\d{3}Z$/, " 
 const detailRows = stats.map((source, index) =>
   `<text class="detail" x="28" y="${166 + index * 18}">${source.name}: ${format(source.repos)} repos · ${format(source.stars)} stars · ${format(source.commits)} commits</text>`
 ).join("\n");
+const metricPanel = ({ x, width, name, label, value, color, muted, icon }) => {
+  const center = x + width / 2;
+  const number = format(value);
+  const iconX = center - number.length * 8.5 - 28;
+  return `
+<rect x="${x}" y="88" width="${width}" height="65" rx="8" fill="${color}" fill-opacity="0.07" stroke="${color}" stroke-opacity="0.2"/>
+<text class="label" x="${center}" y="108" text-anchor="middle" fill="${muted}">${label}</text>
+<g class="metric-icon" transform="translate(${iconX} 120) scale(1.5)" stroke="${color}">${icon}</g>
+<text class="value" x="${center}" y="142" text-anchor="middle" fill="${color}">${number}</text>`;
+};
 
 process.stdout.write(`<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="246" role="img" aria-labelledby="title description">
 <title id="title">dskvr and dskvr's organizations public GitHub activity</title><desc id="description">${format(total.repos)} repositories, ${format(total.stars)} stars, and ${format(total.commits)} authored commits across dskvr, sandwichfarm, napplet, and kehto. Maintained successor forks are included.</desc>
-<style>text{font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif}.title{font-size:22px;font-weight:700;fill:#f0f6fc}.label{font-size:14px;fill:#8b949e}.value{font-size:30px;font-weight:700;fill:#58a6ff}.detail{font-size:13px;fill:#8b949e}.footer{font-size:11px;fill:#6e7681}.metric-icon{fill:none;stroke:#8b949e;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}.value.repositories{fill:#79c0ff}.metric-icon.repositories{stroke:#79c0ff}.label.repositories{fill:#8da9c4}.value.stars{fill:#e3b341}.metric-icon.stars{stroke:#e3b341}.label.stars{fill:#b9a273}.value.commits{fill:#56d4a3}.metric-icon.commits{stroke:#56d4a3}.label.commits{fill:#81b3a0}</style><rect width="720" height="246" rx="12" fill="#0d1117"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif}.title{font-size:22px;font-weight:700;fill:#f0f6fc}.label{font-size:14px}.value{font-size:30px;font-weight:700}.detail{font-size:13px;fill:#8b949e}.footer{font-size:11px;fill:#6e7681}.metric-icon{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}</style><rect width="720" height="246" rx="12" fill="#0d1117"/>
 <text class="title" x="28" y="38">dskvr + dskvr's orgs</text><text class="label" x="28" y="61">public GitHub activity · maintained successor forks included</text><line x1="28" y1="78" x2="692" y2="78" stroke="#30363d"/>
-<g class="metric-icon repositories" transform="translate(28 120) scale(1.5)"><path d="M2 1.5h9.5A1.5 1.5 0 0 1 13 3v11H3.5A1.5 1.5 0 0 1 2 12.5z"/><path d="M5 1.5V14"/></g><text class="label repositories" x="28" y="108">REPOSITORIES</text><text class="value repositories" x="60" y="142">${format(total.repos)}</text>
-<g class="metric-icon stars" transform="translate(278 120) scale(1.5)"><path d="m8 1.5 1.85 3.75 4.15.6-3 2.92.7 4.13L8 10.97 4.3 12.9 5 8.77 2 5.85l4.15-.6z"/></g><text class="label stars" x="278" y="108">STARS</text><text class="value stars" x="310" y="142">${format(total.stars)}</text>
-<g class="metric-icon commits" transform="translate(448 120) scale(1.5)"><path d="M1 8h4.5M10.5 8H15"/><circle cx="8" cy="8" r="2.5"/></g><text class="label commits" x="448" y="108">AUTHORED COMMITS</text><text class="value commits" x="480" y="142">${format(total.commits)}</text>
+${metricPanel({x: 28, width: 213, name: "repositories", label: "REPOSITORIES", value: total.repos, color: "#79c0ff", muted: "#8da9c4", icon: '<path d="M2 1.5h9.5A1.5 1.5 0 0 1 13 3v11H3.5A1.5 1.5 0 0 1 2 12.5z"/><path d="M5 1.5V14"/>'})}
+${metricPanel({x: 253, width: 213, name: "stars", label: "STARS", value: total.stars, color: "#e3b341", muted: "#b9a273", icon: '<path d="m8 1.5 1.85 3.75 4.15.6-3 2.92.7 4.13L8 10.97 4.3 12.9 5 8.77 2 5.85l4.15-.6z"/>'})}
+${metricPanel({x: 478, width: 214, name: "commits", label: "AUTHORED COMMITS", value: total.commits, color: "#56d4a3", muted: "#81b3a0", icon: '<path d="M1 8h4.5M10.5 8H15"/><circle cx="8" cy="8" r="2.5"/>'})}
 ${detailRows}<text class="footer" x="692" y="238" text-anchor="end">${stamp}</text></svg>\n`);
