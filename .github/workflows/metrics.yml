@@ -33,9 +33,10 @@ jobs:
           git add combined-metrics.svg trophies.svg
           git diff --cached --quiet || git commit -m "Refresh generated profile cards" -m "Tested: GitHub API data fetched for dskvr and selected organizations"
           git push
-      - name: Generate personal Metrics image
-        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
+      - name: Generate aggregate Metrics image
+        uses: dskvr/metrics@f57dce2b7730b7e5d6f13b5a9fda8919910ac0b8
         with:
+          use_prebuilt_image: no
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ github.token }}
           committer_branch: gh-pages
@@ -45,6 +46,12 @@ jobs:
           template: classic
           base: header, activity, community, repositories, metadata
           base_indepth: yes
+          repositories: 1000
+          repositories_batch: 25
+          repositories_forks: yes
+          repositories_affiliations: owner, organization_member
+          repositories_included: dskvr, sandwichfarm, napplet, kehto
+          repositories_maintained_forks: sandwichfarm/nsyte
           config_timezone: Europe/Budapest
           config_padding: 16
           plugins_errors_fatal: yes
