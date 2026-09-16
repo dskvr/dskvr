@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Generate combined dskvr and sandwichfarm activity
+      - name: Generate combined dskvr and organization activity
         env:
           METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
         run: node .github/scripts/generate-combined-metrics.mjs > combined-metrics.svg
@@ -31,7 +31,7 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add combined-metrics.svg trophies.svg
-          git diff --cached --quiet || git commit -m "Refresh generated profile cards" -m "Tested: GitHub API data fetched for dskvr and sandwichfarm"
+          git diff --cached --quiet || git commit -m "Refresh generated profile cards" -m "Tested: GitHub API data fetched for dskvr and selected organizations"
           git push
       - name: Generate personal Metrics image
         uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6
