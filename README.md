@@ -15,6 +15,8 @@ Find me on [Nostr](https://njump.me/bread@sandwich.farm) => npub1uac67zc9er54ln0
 
 [![Combined dskvr and dskvr's organizations activity](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/combined-metrics.svg)](https://github.com/dskvr)
 
+---
+
 [![GitHub metrics](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/github-metrics.svg)](https://github.com/lowlighter/metrics)
 
 ## Achievement ledger
