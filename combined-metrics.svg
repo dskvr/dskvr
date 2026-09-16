@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="720" height="246" role="img" aria-labelledby="title description">
 <title id="title">dskvr and dskvr's organizations public GitHub activity</title><desc id="description">77 repositories, 718 stars, and 8,933 authored commits across dskvr, sandwichfarm, napplet, and kehto. Maintained successor forks are included.</desc>
-<style>text{font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif}.title{font-size:22px;font-weight:700;fill:#f0f6fc}.label{font-size:14px}.value{font-size:30px;font-weight:700}.detail{font-size:13px;fill:#8b949e}.footer{font-size:11px;fill:#6e7681}.metric-icon{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}</style><rect width="720" height="246" rx="12" fill="#0d1117"/>
-<text class="title" x="28" y="38">dskvr + dskvr's orgs</text><text class="label" x="28" y="61">public GitHub activity · maintained successor forks included</text><line x1="28" y1="78" x2="692" y2="78" stroke="#30363d"/>
+<style>text{font-family:-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif}.title{font-size:22px;font-weight:700;fill:#f0f6fc}.label{font-size:14px}.subtitle{font-size:14px;fill:#8b949e}.value{font-size:30px;font-weight:700}.detail{font-size:13px;fill:#8b949e}.footer{font-size:11px;fill:#6e7681}.metric-icon{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}</style><rect width="720" height="246" rx="12" fill="#0d1117"/>
+<text class="title" x="28" y="38">dskvr + dskvr's orgs</text><text class="subtitle" x="28" y="61">public GitHub activity · maintained successor forks included</text><line x1="28" y1="78" x2="692" y2="78" stroke="#30363d"/>
 
 <rect x="28" y="88" width="213" height="65" rx="8" fill="#79c0ff" fill-opacity="0.07" stroke="#79c0ff" stroke-opacity="0.2"/>
 <text class="label" x="134.5" y="108" text-anchor="middle" fill="#8da9c4">REPOSITORIES</text>
