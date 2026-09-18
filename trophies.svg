@@ -143,7 +143,7 @@
           <text x="14" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="25" letter-spacing="-1" fill="#f2cc60">SSS</text>
           <text x="14" y="58" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="9.5" letter-spacing="0.35" fill="#f0f6fc">COMMITS</text>
           <text x="14" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9.5" fill="#8b949e">God Committer</text>
-          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">16.3kpt</text>
+          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">16.4kpt</text>
           <rect x="14" y="101" width="82" height="3" fill="#30363d" />
           <rect x="14" y="101" width="82" height="3" fill="#58a6ff" />
         </svg>
