@@ -11,7 +11,7 @@ Find me on [Nostr](https://njump.me/bread@sandwich.farm) => npub1uac67zc9er54ln0
 
 ### Support:
 
-⚡️ Send Satoshis to my lightning wallet: [sandwich@minibits.cash](lightning://sandwich@minibits.cash)
+⚡️ Send sats: [sandwich@npub.cash](lightning://sandwich@npub.cash)
 
 [![Combined dskvr and dskvr's organizations activity](https://raw.githubusercontent.com/dskvr/dskvr/gh-pages/combined-metrics.svg)](https://github.com/dskvr)
 
