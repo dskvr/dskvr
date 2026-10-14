@@ -227,9 +227,9 @@
           <text x="14" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="25" letter-spacing="-1" fill="#f2cc60">SS</text>
           <text x="14" y="58" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="9.5" letter-spacing="0.35" fill="#f0f6fc">ISSUES</text>
           <text x="14" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9.5" fill="#8b949e">Deep Issuer</text>
-          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">861pt</text>
+          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">866pt</text>
           <rect x="14" y="101" width="82" height="3" fill="#30363d" />
-          <rect x="14" y="101" width="59.204" height="3" fill="#58a6ff" />
+          <rect x="14" y="101" width="60.024" height="3" fill="#58a6ff" />
         </svg>
         
         <svg
