@@ -143,7 +143,7 @@
           <text x="14" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="25" letter-spacing="-1" fill="#f2cc60">SSS</text>
           <text x="14" y="58" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="9.5" letter-spacing="0.35" fill="#f0f6fc">COMMITS</text>
           <text x="14" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9.5" fill="#8b949e">God Committer</text>
-          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">21.6kpt</text>
+          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">21.7kpt</text>
           <rect x="14" y="101" width="82" height="3" fill="#30363d" />
           <rect x="14" y="101" width="82" height="3" fill="#58a6ff" />
         </svg>
@@ -227,9 +227,9 @@
           <text x="14" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="25" letter-spacing="-1" fill="#f2cc60">SS</text>
           <text x="14" y="58" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="9.5" letter-spacing="0.35" fill="#f0f6fc">ISSUES</text>
           <text x="14" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9.5" fill="#8b949e">Deep Issuer</text>
-          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">892pt</text>
+          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">895pt</text>
           <rect x="14" y="101" width="82" height="3" fill="#30363d" />
-          <rect x="14" y="101" width="64.288" height="3" fill="#58a6ff" />
+          <rect x="14" y="101" width="64.78" height="3" fill="#58a6ff" />
         </svg>
         
         <svg
@@ -255,9 +255,9 @@
           <text x="14" y="38" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="25" letter-spacing="-1" fill="#f2cc60">SS</text>
           <text x="14" y="58" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="9.5" letter-spacing="0.35" fill="#f0f6fc">REVIEWS</text>
           <text x="14" y="76" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-size="9.5" fill="#8b949e">Deep Reviewer</text>
-          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">59pt</text>
+          <text x="14" y="91" font-family="ui-monospace,SFMono-Regular,Consolas,Liberation Mono,monospace" font-weight="700" font-size="11" fill="#f0f6fc">60pt</text>
           <rect x="14" y="101" width="82" height="3" fill="#30363d" />
-          <rect x="14" y="101" width="12.615384615384617" height="3" fill="#58a6ff" />
+          <rect x="14" y="101" width="18.923076923076923" height="3" fill="#58a6ff" />
         </svg>
         
         <svg
